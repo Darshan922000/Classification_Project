@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  fastapi-app:
+    build: .
+    image: fastapi-app:classification
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - FAST_API = main.py
+      - API_PORT = 8000
+    expose:
+      - 8000
