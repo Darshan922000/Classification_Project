@@ -21,8 +21,8 @@ async def predict(data: DataInput):
         #return {"prediction": prediction}
     
         proba = model.predict_proba([data.features])[0][1]
-        result = "Bankrupt" if proba >= 0.5 else "Not Bankrupt"
-        return {"prediction": result, "probability": proba}
+        result = "Bankrupt!! Save Your Self!!" if proba >= 0.5 else "Not Bankrupt!! You Safe!!"
+        return {"prediction": result, "probability": f"{proba * 100:.2f}%"}
 
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
